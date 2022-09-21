@@ -1,45 +1,26 @@
-<<<<<<< HEAD
-#include "list.h"
-#include <stdio.h>
-
-=======
-#include <stdio.h>
 #include "lists.h"
->>>>>>> 149c3f2550ea6e3f3d5d9d94b581274ea0fd052d
-/**
- * check_cycle - function to check for presence of curcle
- * in sigly linked list
- * @list: node pointer
- * Return: 0 if there's no circle otherwise 1
- */
 
+/**
+ * check_cycle - checks if a linked list contains a cycle
+ * @list: linked list to check
+ *
+ * Return: 1 if the list has a cycle, 0 if it doesn't
+ */
 int check_cycle(listint_t *list)
 {
-	listint_t *node;
-<<<<<<< HEAD
+	listint_t *slow = list;
+	listint_t *fast = list;
 
-	node = list;
-        while (node)
+	if (!list)
+		return (0);
+
+	while (slow && fast && fast->next)
 	{
-		list = list->next;
-		if (list->next == node)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 			return (1);
 	}
+
 	return (0);
 }
-
-=======
-       listint_t *temp;
-
-       node = list;
-       temp = list;
-       while (node && temp && temp->next)
-       {
-	       node = node->next;
-	       temp = temp->next->next;
-	       if (node == temp)
-		       return (1);
-       }
-       return (0);
-}
->>>>>>> 149c3f2550ea6e3f3d5d9d94b581274ea0fd052d
